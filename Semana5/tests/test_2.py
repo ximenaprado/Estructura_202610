@@ -1,31 +1,15 @@
-from semana5.Ejercicio2 import suma_ciclo, suma_recursiva
+from Semana5.ejercicio2 import suma_ciclo, suma_recursiva
 
-
-def test_suma_numeros_pequenos():
-    """
-    Caso simple: verifica que ambos métodos calculen bien la suma.
-    """
-    esperado = 15  # 1 + 2 + 3 + 4 + 5
-
-    assert suma_ciclo(5) == esperado, (
-        "La solución con ciclo no calcula correctamente "
-        "la suma de los primeros N números."
+def test_suma_numeros():
+    assert suma_ciclo(5) == 15, (
+        "La suma usando ciclo es incorrecta."
+    )
+    assert suma_recursiva(5) == 15, (
+        "La suma recursiva es incorrecta. "
+        "Verifique el caso base."
     )
 
-    assert suma_recursiva(5) == esperado, (
-        "La solución recursiva no calcula correctamente "
-        "la suma de los primeros N números. "
-        "Revisa el caso base y la llamada recursiva."
-    )
-
-
-def test_ambas_soluciones_coinciden():
-    """
-    Ambas soluciones deben producir el mismo resultado.
-    """
-    n = 10
-
-    assert suma_ciclo(n) == suma_recursiva(n), (
-        "La solución con ciclo y la solución recursiva "
-        "no producen el mismo resultado."
+def test_resultados_iguales():
+    assert suma_ciclo(10) == suma_recursiva(10), (
+        "Ambas soluciones deben entregar el mismo resultado."
     )
